@@ -1,0 +1,5 @@
+.idea
+end/node_modules
+front/bower_components
+front/node_modules
+front/dist
