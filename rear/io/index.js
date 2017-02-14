@@ -8,7 +8,6 @@ var on_connection = function (socket) {
 	require('./events')(socket);
 };
 
-
 module.exports = function (server) {
 	logger.trace('initial io module.');
 

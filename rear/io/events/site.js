@@ -5,7 +5,6 @@ var on_req_login = function (socket) {
 
 };
 
-
 module.exports = function (socket) {
 
 };

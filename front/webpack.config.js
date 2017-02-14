@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var path    = require('path');
-
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
 	entry    : __dirname + '/src/index.js',
 	output   : {
@@ -36,6 +36,11 @@ module.exports = {
 			}
 		]
 	},
+	vue      : {
+		loaders: {
+			css: ExtractTextPlugin.extract('vue-style-loader', 'css-loader', 'sass-loader')
+		}
+	},
 	babel    : {
 		presets: ['es2015']
 	},
@@ -55,6 +60,11 @@ module.exports = {
 				$     : "jquery",
 				jQuery: "jquery",
 				THREE : "three"
+			}
+		),
+		new ExtractTextPlugin(
+			'../static/asset/css/style.css', {
+				allChunks: true,
 			}
 		),
 		// new webpack.optimize.UglifyJsPlugin(
