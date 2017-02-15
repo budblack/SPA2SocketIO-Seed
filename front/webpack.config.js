@@ -39,7 +39,8 @@ module.exports = {
 	},
 	vue      : {
 		loaders: {
-			css: ExtractTextPlugin.extract('vue-style-loader', 'css-loader', 'sass-loader')
+			less: ExtractTextPlugin.extract('vue-style-loader', 'css!less'),
+			css : ExtractTextPlugin.extract('vue-style-loader', 'css-loader', 'sass-loader')
 		}
 	},
 	babel    : {

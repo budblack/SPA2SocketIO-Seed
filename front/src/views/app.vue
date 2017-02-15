@@ -10,11 +10,11 @@
 
 </style>
 <script>
+    import '../../bower_components/bootstrap/dist/css/bootstrap.min.css'
+    import '../../bower_components/bootstrap/dist/js/bootstrap.min.js'
+
     import main from './site/main.vue'
     import Vue       from 'vue';
     Vue.component('app-main', main);
 
-    require('../../bower_components/bootstrap/dist/css/bootstrap.min.css');
-    require('../../bower_components/bootstrap/dist/js/bootstrap.min.js');
-    require('../static/asset/css/style.min.css');
 </script>
