@@ -6,15 +6,14 @@
     </div>
     </body>
 </template>
-<style>
+<style lang="less">
 
 </style>
 <script>
-    import '../../bower_components/bootstrap/dist/css/bootstrap.min.css'
-    import '../../bower_components/bootstrap/dist/js/bootstrap.min.js'
-
+    import '../static/css/mui.css'
+    import '../static/css/transition.css'
+    import '../static/js/mui'
     import main from './site/main.vue'
     import Vue       from 'vue';
     Vue.component('app-main', main);
-
 </script>

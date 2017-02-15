@@ -1,7 +1,10 @@
 <template>
     <div>
-        <h1>This is a socket test page.</h1>
-        <div>
+        <header class="mui-bar mui-bar-nav">
+            <h1 class="mui-title">This is a socket test page.</h1>
+        </header>
+        <div class="mui-content">
+            <router-link to='/'>Back Home</router-link>
             <table class="table table-hover">
                 <tr
                         v-for="api in socapi_list"

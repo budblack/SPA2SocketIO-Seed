@@ -5,8 +5,10 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
 	entry    : __dirname + '/src/index.js',
 	output   : {
-		filename: 'bundle.js',
-		path    : './dist'
+		filename     : 'bundle.js',
+		path         : './dist',
+		publicPath   : '/',
+		chunkFilename: 'chunk/[id].js'
 	},
 	resolve  : {
 		extensions: [

@@ -4,7 +4,7 @@
 
 console.log('now initial socketIO.');
 
-var socket_server = 'http://127.0.0.1:2048';
+var socket_server = 'http://192.168.1.207:2048';
 var socket        = require('socket.io-client')(socket_server);
 
 

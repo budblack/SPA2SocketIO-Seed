@@ -9,16 +9,15 @@ import routes from './route-config';
 import App from './views/app.vue'
 
 Vue.use(VueRouter);
-var router = new VueRouter();
-
-window.onload = function () {
+// 开启debug模式
+Vue.config.debug = true;
+window.onload    = function () {
 	const router = new VueRouter(
 		{
 			mode: 'history',
 			routes
 		}
 	);
-
 	new Vue(
 		{
 			el    : '#app',
