@@ -1,6 +1,7 @@
-var webpack = require('webpack');
-var path    = require('path');
+var webpack           = require('webpack');
+var path              = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
 	entry    : __dirname + '/src/index.js',
 	output   : {
@@ -33,7 +34,7 @@ module.exports = {
 			{
 				test  : /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
 				loader: 'url-loader?limit=50000&name=[path][name].[ext]'
-			}
+			},
 		]
 	},
 	vue      : {
@@ -57,16 +58,17 @@ module.exports = {
 		// 注册为插件的三方库可作为全局变量, 而不需要再在代码中 require
 		new webpack.ProvidePlugin(
 			{
-				$     : "jquery",
-				jQuery: "jquery",
-				THREE : "three"
+				$              : "jquery",
+				jQuery         : "jquery",
+				"window.jQuery": "jquery",
+				THREE          : "three"
 			}
 		),
 		new ExtractTextPlugin(
 			'../static/asset/css/style.css', {
 				allChunks: true,
 			}
-		),
+		)
 		// new webpack.optimize.UglifyJsPlugin(
 		// 	{
 		// 		compress: {

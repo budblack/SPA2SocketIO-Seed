@@ -1,413 +1,15 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<template>
+    <div>
+        <div class="agile-main">
+            <top-nav></top-nav>
+            <div class="content-wrap">
+                <content-header></content-header>
+                <router-view></router-view>
+            </div>
+        </div>
+    </div>
+</template>
+<style>
 /* latin */
 @font-face {
   font-family: 'Abel';
@@ -1102,33 +704,112 @@
 
 
 
+</style>
+<script>
+    //载入组件
+    import Vue       from 'vue';
+    import TopNav from './menu/nav.vue'
+    import ContentHeader from './header.vue'
+
+    Vue.component('content-header', ContentHeader);
+    Vue.component('top-nav', TopNav);
+
+    import '../../static/asset/css/bootstrap.css'
+    import '../../static/asset/css/style.css'
+    import '../../static/asset/css/ken-burns.css'
+
+    import '../../static/asset/js/jquery.magnific-popup'
+    import '../../static/asset/js/jquery.nicescroll.min'
+    import classie from '../../static/asset/js/classie'
+    import '../../static/asset/js/main'
+    import '../../static/asset/js/bootstrap'
+    import '../../static/asset/js/custom'
+
+    function hideURLbar() { window.scrollTo(0, 1); }
+
+    $(document).ready(
+            function () {
+                $('.popup-top-anim').magnificPopup(
+                        {
+                            type           : 'inline',
+                            fixedContentPos: false,
+                            fixedBgPos     : true,
+                            overflowY      : 'auto',
+                            closeBtnInside : true,
+                            preloader      : false,
+                            midClick       : true,
+                            removalDelay   : 300,
+                            mainClass      : 'my-mfp-zoom-in'
+                        }
+                );
 
 
+                var nice = $("html").niceScroll();  // The document page (body)
+                $("#div1").html($("#div1").html() + ' ' + nice.version);
+                $("#boxscroll").niceScroll({cursorborder: "", cursorcolor: "#00F", boxzoom: true}); // First scrollable DIV
+            }
+    );
 
+    $("li a.menu").click(
+            function () {
+                $("ul.nav-sub").slideToggle(
+                        300, function () {
+                            // Animation complete.
+                        }
+                );
+            }
+    );
 
+    $(document).ready(
+            function () {
 
+                var bodyEl   = document.body,
+                    content  = document.querySelector('.content-wrap'),
+                    openbtn  = document.getElementById('open-button'),
+                    closebtn = document.getElementById('close-button'),
+                    isOpen   = false;
 
+                function init() {
+                    initEvents();
+                }
 
+                function initEvents() {
+                    if (openbtn) {
+                        openbtn.addEventListener('click', toggleMenu);
+                    }
+                    else {
+                        console.error('openbtn not found!');
+                    }
+                    if (closebtn) {
+                        closebtn.addEventListener('click', toggleMenu);
+                    }
 
+                    // close the menu element if the target it´s not the menu element or one of its descendants..
+                    if (content) {
+                        content.addEventListener(
+                                'click', function (ev) {
+                                    var target = ev.target;
+                                    if (isOpen && target !== openbtn) {
+                                        toggleMenu();
+                                    }
+                                }
+                        );
+                    }
+                }
 
+                function toggleMenu() {
+                    if (isOpen) {
+                        classie.remove(bodyEl, 'show-menu');
+                    }
+                    else {
+                        classie.add(bodyEl, 'show-menu');
+                    }
+                    isOpen = !isOpen;
+                }
 
+                init();
 
+            }
+    );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</script>
