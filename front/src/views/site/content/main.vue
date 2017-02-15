@@ -4,7 +4,7 @@
             <h1 class="mui-title">SPA2SocketIO-Seed</h1>
         </header>
         <div class="mui-content">
-            <div id="Gallery" class="mui-slider" style="margin-top:15px;">
+            <div id="Gallery" :class=$style.Gallery>
                 <div class="mui-slider-group">
                     <div class="mui-slider-item">
                         <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -28,28 +28,20 @@
                                 </router-link>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                                <router-link to='/404'>
-                                    <span class="mui-icon mui-icon-more"></span>
-                                    <div class="mui-media-body">more</div>
-                                </router-link>
-                            </li>
-
-                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                                <router-link to='/about'>
-                                    <span class="mui-icon mui-icon-email">
-                                        <span class="mui-badge">5</span>
+                                <router-link to='/user'>
+                                    <span class="mui-icon mui-icon-contact mui-icon-icon-contact-filled">
                                     </span>
                                     <div class="mui-media-body">
-                                        About
+                                        User
                                     </div>
                                 </router-link>
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                                <router-link to='/debug_socket'>
-                                    <span class="mui-icon mui-icon-eye">
+                                <router-link to='/trade'>
+                                    <span class="mui-icon mui-icon-extra mui-icon-extra-gold">
                                     </span>
                                     <div class="mui-media-body">
-                                        Testing
+                                        Trade
                                     </div>
                                 </router-link>
                             </li>
@@ -95,21 +87,14 @@
     </div>
 </template>
 <style lang="less" module>
-    :local(.content) {
+    .Gallery {
+        margin-top: 15px;
     }
 </style>
 <script>
     export default {
         data(){
             return {}
-        },
-        components: {
-            confirm
-        },
-        events    : {
-            confirm(){},
-            cancle(){}
         }
     }
-
 </script>

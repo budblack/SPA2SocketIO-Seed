@@ -11,6 +11,7 @@
 </style>
 <script>
     import '../static/css/mui.css'
+    import '../static/css/icons-extra.css'
     import '../static/css/transition.css'
     import '../static/js/mui'
     import main from './site/main.vue'

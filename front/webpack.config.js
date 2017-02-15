@@ -1,14 +1,15 @@
 var webpack           = require('webpack');
 var path              = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry    : __dirname + '/src/index.js',
 	output   : {
-		filename     : 'bundle.js',
+		filename     : 'bundle_[chunkhash].js',
 		path         : './dist',
 		publicPath   : '/',
-		chunkFilename: 'chunk/[id].js'
+		chunkFilename: 'chunk/[chunkhash].js'
 	},
 	resolve  : {
 		extensions: [
@@ -19,30 +20,16 @@ module.exports = {
 	},
 	module   : {
 		loaders: [
-			{
-				test  : /\.vue$/,
-				loader: 'vue'
-			},
-			{
-				test   : /\.js$/,
-				loader : 'babel-loader',
-				exclude: /node_modules/
-			},
-			{
-				test  : /\.css$/,
-				loader: "style-loader!css-loader"
-				// loaders: ExtractTextPlugin.extract("style-loader", "css-loader")
-			},
-			{
-				test  : /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
-				loader: 'url-loader?limit=50000&name=[path][name].[ext]'
-			},
+			{test: /\.vue$/, loader: 'vue'},
+			{test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
+			{test: /\.css$/, loader: "style-loader!css-loader"},
+			{test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=50000&name=[path][name].[ext]'},
+			{test: /\.json$/, loader: "json-loader"},
 		]
 	},
 	vue      : {
 		loaders: {
-			less: ExtractTextPlugin.extract('vue-style-loader', 'css!less'),
-			css : ExtractTextPlugin.extract('vue-style-loader', 'css-loader', 'sass-loader')
+			css: ExtractTextPlugin.extract('vue-style-loader', 'css-loader', 'sass-loader')
 		}
 	},
 	babel    : {
@@ -71,7 +58,21 @@ module.exports = {
 			'../static/asset/css/style.css', {
 				allChunks: true,
 			}
-		)
+		),
+		new HtmlWebpackPlugin(
+			{
+				// favicon : './src/img/favicon.ico', //favicon路径
+				title   : 'SPA',
+				filename: 'index.html',    //生成的html存放路径，相对于 path
+				template: __dirname + '/src/static/index.html',    //html模板路径
+				inject  : true,    //允许插件修改哪些内容，包括head与body
+				hash    : true,    //为静态资源生成hash值
+				minify  : {    //压缩HTML文件
+					removeComments    : true,    //移除HTML中的注释
+					collapseWhitespace: false    //删除空白符与换行符
+				}
+			}
+		),
 		// new webpack.optimize.UglifyJsPlugin(
 		// 	{
 		// 		compress: {

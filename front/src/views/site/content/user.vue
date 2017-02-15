@@ -2,7 +2,7 @@
     <div>
         <header class="mui-bar mui-bar-nav">
             <h1 class="mui-title">
-                404 Not found.
+                User Center
             </h1>
         </header>
         <div class="mui-content">
