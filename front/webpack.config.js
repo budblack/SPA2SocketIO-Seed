@@ -2,6 +2,7 @@ var webpack           = require('webpack');
 var path              = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CleanPlugin       = require('clean-webpack-plugin');
 
 module.exports = {
 	entry    : __dirname + '/src/index.js',
@@ -55,7 +56,7 @@ module.exports = {
 			}
 		),
 		new ExtractTextPlugin(
-			'../static/asset/css/style.css', {
+			'static/css/style.css', {
 				allChunks: true,
 			}
 		),
@@ -73,6 +74,7 @@ module.exports = {
 				}
 			}
 		),
+		new CleanPlugin("dist/*"),
 		// new webpack.optimize.UglifyJsPlugin(
 		// 	{
 		// 		compress: {

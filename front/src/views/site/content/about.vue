@@ -17,7 +17,6 @@
 </template>
 <style lang="less" module>
     :local(.title) {
-        color: red;
     }
 </style>
 <script>
