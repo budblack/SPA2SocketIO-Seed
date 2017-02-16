@@ -51,31 +51,6 @@
                                     <div class="mui-media-body">more</div>
                                 </router-link>
                             </li>
-                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                                <router-link to='/about'>
-                                    <span class="mui-icon mui-icon-email">
-                                        <span class="mui-badge">5</span>
-                                    </span>
-                                    <div class="mui-media-body">
-                                        About
-                                    </div>
-                                </router-link>
-                            </li>
-                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                                <router-link to='/debug_socket'>
-                                    <span class="mui-icon mui-icon-eye">
-                                    </span>
-                                    <div class="mui-media-body">
-                                        Testing
-                                    </div>
-                                </router-link>
-                            </li>
-                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                                <router-link to='/404'>
-                                    <span class="mui-icon mui-icon-more"></span>
-                                    <div class="mui-media-body">more</div>
-                                </router-link>
-                            </li>
                         </ul>
                     </div>
                 </div>

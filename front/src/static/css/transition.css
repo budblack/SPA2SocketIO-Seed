@@ -1,9 +1,11 @@
 .fade-enter-active {
-    position: fixed;
+    /*position: fixed;*/
     transition: opacity .3s
 }
 
 .fade-leave-active {
+    left: 0;
+    right:0;
     position: fixed;
     transition: opacity .3s
 }

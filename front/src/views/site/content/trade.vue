@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.content">
+    <div>
         <com-header></com-header>
         <div class="mui-content">
             <div id="chart_container" :class="$style.chart_container">
