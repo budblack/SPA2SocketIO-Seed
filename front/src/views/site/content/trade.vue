@@ -1,8 +1,6 @@
 <template>
     <div :class="$style.content">
-        <header class="mui-bar mui-bar-nav">
-            <h1 class="mui-title">Trade</h1>
-        </header>
+        <com-header></com-header>
         <div class="mui-content">
             <div id="chart_container" :class="$style.chart_container">
                 <div id="chart" :class="$style.chart"></div>
@@ -13,17 +11,15 @@
         </div>
     </div>
 </template>
-<style lang="less" module>
+<style lang="css" module>
     .chart_container {
         width: 100%;
         height: 50%;
     }
-
     .chart {
         width: 100%;
         height: 100%;
     }
-
     .info_container {
         width: 100%;
         height: 50%;
@@ -31,7 +27,16 @@
     }
 </style>
 <script>
-    var echarts = require('echarts');
+    import ComHeader from '../components/header.vue'
+    import Vue from 'vue';
+    Vue.component('com-header', ComHeader);
+
+    var echarts = require('echarts/lib/echarts');
+    require('echarts/lib/chart/line');
+    // 引入提示框和标题组件
+    require('echarts/lib/component/tooltip');
+    require('echarts/lib/component/title');
+
     var myChart;
 
     function randomData() {

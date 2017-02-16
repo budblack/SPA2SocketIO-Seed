@@ -1,10 +1,6 @@
 <template>
     <div>
-        <header class="mui-bar mui-bar-nav">
-            <h1 class="mui-title">
-                ABOUT ME
-            </h1>
-        </header>
+        <com-header></com-header>
         <div class="mui-content">
             <transition name="fade">
                 <div v-if="show">
@@ -20,6 +16,10 @@
     }
 </style>
 <script>
+    import ComHeader from '../components/header.vue'
+    import Vue from 'vue';
+    Vue.component('com-header', ComHeader);
+
     export default {
         data(){
             return {
@@ -33,5 +33,4 @@
             }
         }
     }
-
 </script>

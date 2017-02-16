@@ -1,8 +1,6 @@
 <template>
     <div>
-        <header class="mui-bar mui-bar-nav">
-            <h1 class="mui-title">This is a socket test page.</h1>
-        </header>
+        <com-header></com-header>
         <div class="mui-content">
             <router-link to='/'>Back Home</router-link>
             <table class="table table-hover">
@@ -25,6 +23,8 @@
 
 </style>
 <script>
+    import ComHeader from '../site/components/header.vue'
+    Vue.component('com-header', ComHeader);
     import Vue       from 'vue';
 
     var socapi = require('../../io/socapi');

@@ -1,10 +1,6 @@
 <template>
     <div>
-        <header class="mui-bar mui-bar-nav">
-            <h1 class="mui-title">
-                404 Not found.
-            </h1>
-        </header>
+        <com-header></com-header>
         <div class="mui-content">
             <router-link to='/'>Back Home</router-link>
         </div>
@@ -14,5 +10,9 @@
 
 </style>
 <script>
+    import ComHeader from '../components/header.vue'
+    import Vue from 'vue';
+    Vue.component('com-header', ComHeader);
+
 
 </script>

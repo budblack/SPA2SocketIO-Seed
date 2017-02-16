@@ -14,7 +14,9 @@
     import '../static/css/icons-extra.css'
     import '../static/css/transition.css'
     import '../static/js/mui'
+    import Vue from 'vue';
+
     import main from './site/main.vue'
-    import Vue       from 'vue';
+    // const main = r => require.ensure([], () => {r(require('./site/main.vue'));});
     Vue.component('app-main', main);
 </script>

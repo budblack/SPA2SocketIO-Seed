@@ -92,6 +92,9 @@
     }
 </style>
 <script>
+
+    import user_control from '../../../controls/user'
+
     export default {
         data(){
             return {}

@@ -23,14 +23,16 @@ module.exports = {
 		loaders: [
 			{test: /\.vue$/, loader: 'vue'},
 			{test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/},
-			{test: /\.css$/, loader: "style-loader!css-loader"},
+			{test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")},
 			{test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=50000&name=[path][name].[ext]'},
 			{test: /\.json$/, loader: "json-loader"},
 		]
 	},
 	vue      : {
 		loaders: {
-			css: ExtractTextPlugin.extract('vue-style-loader', 'css-loader', 'sass-loader')
+			css : ExtractTextPlugin.extract('vue-style-loader', 'css-loader'),
+			less: ExtractTextPlugin.extract('vue-style-loader', 'css-loader', 'less-loader'),
+			sass: ExtractTextPlugin.extract('vue-style-loader', 'css-loader', 'sass-loader'),
 		}
 	},
 	babel    : {
@@ -55,6 +57,26 @@ module.exports = {
 				THREE          : "three"
 			}
 		),
+		// new webpack.DefinePlugin(
+		// 	{
+		// 		'process.env': {
+		// 			NODE_ENV: '"production"'
+		// 		}
+		// 	}
+		// ),
+		// new webpack.optimize.UglifyJsPlugin(
+		// 	{
+		// 		compress : {
+		// 			warnings: false
+		// 		},
+		// 		output   : {
+		// 			comments: false,
+		// 		},
+		// 		sourceMap: true,
+		// 		mangle   : true
+		// 	}
+		// ),
+		new CleanPlugin("dist/*"),
 		new ExtractTextPlugin(
 			'static/css/style.css', {
 				allChunks: true,
@@ -62,7 +84,7 @@ module.exports = {
 		),
 		new HtmlWebpackPlugin(
 			{
-				// favicon : './src/img/favicon.ico', //favicon路径
+				favicon : './src/static/img/favicon.ico', //favicon路径
 				title   : 'SPA',
 				filename: 'index.html',    //生成的html存放路径，相对于 path
 				template: __dirname + '/src/static/index.html',    //html模板路径
@@ -74,14 +96,14 @@ module.exports = {
 				}
 			}
 		),
-		new CleanPlugin("dist/*"),
-		// new webpack.optimize.UglifyJsPlugin(
-		// 	{
-		// 		compress: {
-		// 			warnings: false
-		// 		},
-		// 		comments: false
-		// 	}
-		// )
 	],
+	node     : {
+		fs                : "empty",
+		cluster           : "empty",
+		dgram             : "empty",
+		'hipchat-notifier': "empty",
+		loggly            : "empty",
+		mailgun           : "empty",
+		net               : "empty"
+	}
 };
