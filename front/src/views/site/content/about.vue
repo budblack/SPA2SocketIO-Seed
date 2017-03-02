@@ -1,6 +1,5 @@
 <template>
     <div>
-        <com-header></com-header>
         <div class="mui-content">
             <transition name="fade">
                 <div v-if="show">

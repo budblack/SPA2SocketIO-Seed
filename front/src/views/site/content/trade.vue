@@ -1,6 +1,5 @@
 <template>
     <div>
-        <com-header></com-header>
         <div class="mui-content">
             <div id="chart_container" :class="$style.chart_container">
                 <div id="chart" :class="$style.chart"></div>
@@ -27,10 +26,6 @@
     }
 </style>
 <script>
-    import ComHeader from '../components/header.vue'
-    import Vue from 'vue';
-    Vue.component('com-header', ComHeader);
-
     var echarts = require('echarts/lib/echarts');
     require('echarts/lib/chart/line');
     // 引入提示框和标题组件

@@ -7,10 +7,11 @@ import store from 'store'
 console.log('user_storage has been initited.');
 
 var login_info_default = {
-	login_name : '',
-	login_pass : '',
-	device_hash: '',
-	token      : ''
+	login_name  : '',
+	login_pass  : '',
+	device_hash : '',
+	token       : '',
+	is_autologin: false
 };
 
 module.exports = {

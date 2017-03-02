@@ -97,13 +97,4 @@ module.exports = {
 			}
 		),
 	],
-	node     : {
-		fs                : "empty",
-		cluster           : "empty",
-		dgram             : "empty",
-		'hipchat-notifier': "empty",
-		loggly            : "empty",
-		mailgun           : "empty",
-		net               : "empty"
-	}
 };

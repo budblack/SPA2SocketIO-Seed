@@ -1,8 +1,5 @@
 <template>
     <div :class="$style.content">
-        <header class="mui-bar mui-bar-nav">
-            <h1 class="mui-title">SPA2SocketIO-Seed</h1>
-        </header>
         <div class="mui-content">
             <div id="Gallery" :class=$style.Gallery>
                 <div class="mui-slider-group">
@@ -29,10 +26,19 @@
                             </li>
                             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                                 <router-link to='/user'>
+                                    <span class="mui-icon mui-icon-info mui-icon-icon-info-filled">
+                                    </span>
+                                    <div class="mui-media-body">
+                                        User Info
+                                    </div>
+                                </router-link>
+                            </li>
+                            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                                <router-link to='/login'>
                                     <span class="mui-icon mui-icon-contact mui-icon-icon-contact-filled">
                                     </span>
                                     <div class="mui-media-body">
-                                        User
+                                        Login
                                     </div>
                                 </router-link>
                             </li>

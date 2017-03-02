@@ -1,6 +1,5 @@
 <template>
     <div>
-        <com-header></com-header>
         <div class="mui-content">
             <router-link to='/'>Back Home</router-link>
         </div>
