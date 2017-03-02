@@ -1,24 +1,23 @@
-require('es6-promise').polyfill();  //es6 promise
-require('isomorphic-fetch');  //fetch库
-
-var io = require('./io');
-
+// require('es6-promise').polyfill();  //es6 promise
+// require('isomorphic-fetch');  //fetch库
 import Vue       from 'vue';
 import VueRouter from 'vue-router';
 import routes from './route-config';
-import App from './views/app.vue'
+
+const io  = r => require.ensure([], () => r(require('./io')));
+const App = r => require.ensure([], () => r(require('./views/app.vue')));
 
 Vue.use(VueRouter);
-var router = new VueRouter();
+Vue.config.debug = true;
+
+const router  = new VueRouter(
+	{
+		mode: 'history',
+		routes
+	}
+);
 
 window.onload = function () {
-	const router = new VueRouter(
-		{
-			mode: 'history',
-			routes
-		}
-	);
-
 	new Vue(
 		{
 			el    : '#app',
@@ -26,5 +25,8 @@ window.onload = function () {
 			render: h=>h(App)
 		}
 	);
+};
 
+module.exports = {
+	router: router
 };

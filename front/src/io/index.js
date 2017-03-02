@@ -1,10 +1,10 @@
 /**
  * Created by budblack on 2017/2/14.
  */
+import config from '../config.json'
+console.log('now initial socketIO.', config);
 
-console.log('now initial socketIO.');
-
-var socket_server = 'http://127.0.0.1:2048';
+var socket_server = config.io.server;
 var socket        = require('socket.io-client')(socket_server);
 
 
